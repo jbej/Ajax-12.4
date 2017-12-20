@@ -16,7 +16,7 @@ function getJoke() {
       if (!response.value || !response.value.joke) {
         return;
       }
-
+      paragraph.innerHTML = response.value.joke;
     });
     xhr.send();
   }
