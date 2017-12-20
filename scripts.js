@@ -9,9 +9,14 @@ button.addEventListener('click', function(){
 function getJoke() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url);
-    xhr.addEventListener('load', function(){
+
+    xhr.addEventListener('load', function() {
       var response = JSON.parse(xhr.response);
-      paragraph.innerHTML = response.value.joke;
+
+      if (!response.value || !response.value.joke) {
+        return;
+      }
+
     });
     xhr.send();
   }
